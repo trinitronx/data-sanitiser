@@ -8,8 +8,10 @@ PACKAGE_FILE            = $(REPO_NAME)-$(VERSION).tar.gz
 
 .PHONY: build-requirements setup sdist install test nose2
 
-build-requirements: ## Install setup.py requirements from build/build-requirements.txt
+build/.pip_install_build_reqs: build/build-requirements.txt ## no-help
 	pip install -r build/build-requirements.txt
+	touch build/.pip_install_build_reqs
+build-requirements: build/.pip_install_build_reqs ## Install setup.py requirements from build/build-requirements.txt
 
 setup: build-requirements ## Run python setup.py sdist
 	python setup.py sdist
