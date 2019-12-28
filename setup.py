@@ -28,6 +28,6 @@ if __name__ == '__main__':
         url='https://github.com/wapdat/ppi-sanitise',
         license=LICENSE,
         packages=find_packages(exclude=('tests', 'docs')),
-        test_suite="nose.collector",
-        tests_require="nose~=1.3"
+        test_suite="nose2.collector.collector",
+        tests_require="nose2~=0.9"
     )
