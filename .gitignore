@@ -8,6 +8,10 @@ __pycache__/
 # C extensions
 *.so
 
+# Rendered README files for pypi / sdist / egg contents
+README.txt
+README.rst
+
 # Distribution / packaging
 .Python
 build/
