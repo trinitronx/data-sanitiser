@@ -10,6 +10,10 @@ VERSION_TXT_PATH  = os.path.join(ROOT_DIR, 'VERSION')
 with open('README.md') as f:
     README = f.read()
 
+with open('requirements.txt') as f:
+    INSTALL_REQUIRES = [line.rstrip('\n') for line in f]
+    print(INSTALL_REQUIRES)
+
 with open('LICENSE') as f:
     LICENSE = f.read()
 
@@ -28,6 +32,7 @@ if __name__ == '__main__':
         url='https://github.com/wapdat/ppi-sanitise',
         license=LICENSE,
         packages=find_packages(exclude=('tests', 'docs')),
+        install_requires=INSTALL_REQUIRES,
         test_suite="nose2.collector.collector",
         tests_require="nose2~=0.9"
     )
