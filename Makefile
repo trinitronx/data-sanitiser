@@ -6,13 +6,15 @@ PACKAGE_FILE            = $(REPO_NAME)-$(VERSION).tar.gz
 
 # include ./build/main.mk
 
-.PHONY: build-requirements setup install test nose2
+.PHONY: build-requirements setup sdist install test nose2
 
 build-requirements: ## Install setup.py requirements from build/build-requirements.txt
 	pip install -r build/build-requirements.txt
 
 setup: build-requirements ## Run python setup.py sdist
 	python setup.py sdist
+
+sdist: setup ## Alias for make setup
 
 install: build-requirements ## Runs python setup.py install
 	python setup.py install
