@@ -1,4 +1,4 @@
-REPO_NAME              := ppi-sanitise
+REPO_NAME              := ppi-sanitize
 SHELL                   = /bin/bash
 VERSION_FILE            = VERSION
 VERSION                 =`cat $(VERSION_FILE)`

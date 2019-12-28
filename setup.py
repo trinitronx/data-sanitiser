@@ -48,9 +48,9 @@ with open(VERSION_TXT_PATH) as f:
 
 if __name__ == '__main__':
     setup(
-        name='ppi-sanitise',
+        name='ppi-sanitize',
         version=VERSION,
-        description='Code (regular expresssions and NTLK) to tokenise (remove)' + \
+        description='Code (regular expresssions and NTLK) to tokenize (remove)' + \
                     ' Private Personal Information (PPI) in Python.',
         long_description=README,
         author='Lindsay Smith',

@@ -1,7 +1,7 @@
 import sys
 import re
 import time
-import sanitise 
+import sanitize
 
 if len(sys.argv) < 2:
     print('Exit code 10: Please enter a string to regexReplace and optionally -v for verbose')
@@ -18,10 +18,10 @@ if (len(sys.argv) == 3):
 
 
 milli_sec_start = int(round(time.time() * 1000))
-if (debug) : print('%-20s "%s"' % ('Unsanitised', str))
+if (debug) : print('%-20s "%s"' % ('Unsanitized', str))
 
-str = sanitise.tokenise(str)
-str = sanitise.replacePPI(str)
+str = sanitize.tokenise(str)
+str = sanitize.replacePPI(str)
 
 if (debug): print('%-20s "%s"' % ('Test list: ', list))
 if (debug) : print (original)
