@@ -14,7 +14,7 @@ with open('LICENSE') as f:
 
 if __name__ == '__main__':
     setup(
-        name='sample',
+        name='ppi-sanitise',
         version='0.1.0',
         description='Code (regular expresssions and NTLK) to tokenise (remove)' + \
                     ' Private Personal Information (PPI) in Python.',
@@ -24,4 +24,6 @@ if __name__ == '__main__':
         url='https://github.com/wapdat/ppi-sanitise',
         license=LICENSE,
         packages=find_packages(exclude=('tests', 'docs')),
+        test_suite="nose.collector",
+        tests_require="nose~=1.3"
     )
