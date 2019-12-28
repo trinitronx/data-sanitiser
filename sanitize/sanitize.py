@@ -4,7 +4,7 @@ import nltk
 debug = False
 list = ''
 
-def tokenise(doc):
+def tokenize(doc):
     tokenized_doc = nltk.word_tokenize(doc)
     tagged_sentences = nltk.pos_tag(tokenized_doc)
     ne_chunked_sents = nltk.ne_chunk(tagged_sentences)

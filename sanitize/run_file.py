@@ -8,7 +8,7 @@ import time
 import fileinput
 import tqdm
 import nltk
-import sanitise
+import sanitize
 
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
@@ -36,10 +36,10 @@ def main():
         for line in fileinput.FileInput(filename, inplace=1):
             original = line
 
-            replaced_line = sanitise.tokenise(line)
-            replaced_line = sanitise.replacePPI(line)
+            replaced_line = sanitize.tokenize(line)
+            replaced_line = sanitize.replacePPI(line)
             if debug:
-                sys.stderr.write('%-20s "%s"' % ('Unsanitised', original))
+                sys.stderr.write('%-20s "%s"' % ('Unsanitized', original))
                 sys.stderr.write('%-20s "%s"' % ('Test list: ', test_list))
                 sys.stderr.write(original)
                 sys.stderr.write(replaced_line)

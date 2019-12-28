@@ -1,4 +1,4 @@
-# Sanitise (by removal, tokenisaction, or redaction) Personal and Private Data
+# Sanitize (by removal, tokenisaction, or redaction) Personal and Private Data
 
 Code (regular expresssions and NTLK) to tokenise (remove) Private Personal Data in unstructured data.
 
@@ -11,6 +11,26 @@ It turns this...
 into this. (something you could pass to a 3rd party and they wouldn't need to be classed as a GDPR Processor)
 
 `My email address is  NAME@EMAIL.COM and NAME@EMAIL.COM  UKPOSTCODE I like bank holidays and speaking french. my ssn is  SSN call me on UKPHONE or UKPHONE  - your sincerely  PERSON and by the way  I work at ORGANIZATION`
+
+
+## Installing
+
+### Mac/Unix
+
+    pip install ppi-sanitize
+
+Or, if you wish to get the latest development release (e.g. to develop a patch or new feature):
+
+    # Note: This requires you have git, make, python, and pip already installed
+    git clone https://github.com/wapdat/data-sanitiser.git ppi-sanitize
+    cd ppi-sanitize
+    make install
+
+### Windows
+
+- First, follow the [NLTK install instructions here](http://www.nltk.org/install.html#windows).
+- Then, install this package via PyPi
+
 
 ## Inspiration - models memorise secrets 
 
@@ -30,7 +50,7 @@ The [paper](https://arxiv.org/abs/1802.08232) has a decent suggestion to overcom
 
 Here's the thing - there is no exhaustive list.  At one level it is intuitive, but at best the guidance you will read is "data like examples a, b, c is personal/private/sensitive data". NIST in the US and the ICO in the UK provide such examples. (I'm working on the "periodic table" of personal, private and sensitive data)
 
-This code will not exhaustively sanitise all Personal and Private Data because the definition of Personal and Private Data is not a definitive list. GDPR language is intentionally descriptive not definitive. It's a truism - how can you exhaustively identify things you can't define.
+This code will not exhaustively sanitize all Personal and Private Data because the definition of Personal and Private Data is not a definitive list. GDPR language is intentionally descriptive not definitive. It's a truism - how can you exhaustively identify things you can't define.
 
 However, it is possible to exhaustively test for some PPI. For example, there are 1.6m postcodes in the UK. The regex used here has been tested against all 1.6m with 100% accuracy. For some PPI, it's trickier, in particular names and addresses. However, it is conceivable to exhaustively test your rules against every name and address in the UK Electoral Register.
 
@@ -78,7 +98,7 @@ Refer to the tests to understand exactly what these data items mean and how wide
 * Sanitising training data before you feed it in to a Machine Learning model
 * Sanitising data if you want to move a copy of data out of Production for test purposes
 * Sanitising logs - re-write logs in-situ to remove PPI as an Infosec control 
-* Data Loss Prevention - script it into your email server to sanitise outbound emails. Could definitley be done in Postfix without too many headaches
+* Data Loss Prevention - script it into your email server to sanitize outbound emails. Could definitley be done in Postfix without too many headaches
 * Sanitising historical audit data
 
 _NB There is no guarantee that this (or any thing) will remove all PPI information._
