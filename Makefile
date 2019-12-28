@@ -29,8 +29,9 @@ nose2: ## Runs tests via nose2 CLI (requires: pip3 install nose2)
 clean:: ## Removes all temporary files - Executes make clean
 	rm -rf ./dist
 	rm -rf ./.eggs
-	rm -f MANIFEST
+	rm -f MANIFEST README.txt README.rst
 	rm -f .coverage
-	find ./ -type f -iwholename '*.egg-info' -exec rm -rf '{}' \;
+	find ./ -type f -iwholename '*.egg-info/*' -exec rm -rf '{}' \;
 	find ./ -iname '*.pyc' -exec rm -f '{}' \;
 	find ./ -type f -name '__pycache__/*' -exec rm -f '{}' \;
+	find ./build -type f ! \( -name 'build-requirements.txt' -o -name main.mk \) -exec rm -f '{}' \;
