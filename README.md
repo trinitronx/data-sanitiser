@@ -12,6 +12,26 @@ into this. (something you could pass to a 3rd party and they wouldn't need to be
 
 `My email address is  NAME@EMAIL.COM and NAME@EMAIL.COM  UKPOSTCODE I like bank holidays and speaking french. my ssn is  SSN call me on UKPHONE or UKPHONE  - your sincerely  PERSON and by the way  I work at ORGANIZATION`
 
+
+## Installing
+
+### Mac/Unix
+
+    pip install ppi-sanitize
+
+Or, if you wish to get the latest development release (e.g. to develop a patch or new feature):
+
+    # Note: This requires you have git, make, python, and pip already installed
+    git clone https://github.com/wapdat/data-sanitiser.git ppi-sanitize
+    cd ppi-sanitize
+    make install
+
+### Windows
+
+- First, follow the [NLTK install instructions here](http://www.nltk.org/install.html#windows).
+- Then, install this package via PyPi
+
+
 ## Inspiration - models memorise secrets 
 
 "never feed secrets as training data"
