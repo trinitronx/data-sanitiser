@@ -3,16 +3,42 @@
 setup.py: Python setuptools script + package config
 '''
 import os
+import errno
+import inspect
 from setuptools import setup, find_packages
 
-VERSION_TXT_PATH  = os.path.join(ROOT_DIR, 'VERSION')
+SETUP_PY_FILENAME = inspect.getframeinfo(inspect.currentframe()).filename
+ROOT_DIR = os.path.dirname(os.path.abspath(SETUP_PY_FILENAME))
+README_MD_PATH = os.path.join(ROOT_DIR, 'README.md')
+README_RST_PATH = os.path.join(ROOT_DIR, 'README.rst')
+README_TXT_PATH = os.path.join(ROOT_DIR, 'README.txt')
+VERSION_TXT_PATH = os.path.join(ROOT_DIR, 'VERSION')
 
-with open('README.md') as f:
-    README = f.read()
+try:
+    from m2r import parse_from_file
+    README = parse_from_file(README_MD_PATH)
+    f = open(README_RST_PATH, 'w')
+    f.write(README)
+    f.close()
+    os_symlink = getattr(os, "symlink", None)
+    if callable(os_symlink):
+        try:
+            os.symlink(README_RST_PATH, README_TXT_PATH)
+        except OSError as e:
+            if e.errno == errno.EEXIST:
+                os.remove(README_TXT_PATH)
+                os.symlink(README_RST_PATH, README_TXT_PATH)
+    else:
+        f = open(README_TXT_PATH, 'w')
+        f.write(README)
+        f.close()
+except ImportError:
+    # m2r may not be installed in user environment
+    with open(README_MD_PATH) as f:
+        README = f.read()
 
 with open('requirements.txt') as f:
     INSTALL_REQUIRES = [line.rstrip('\n') for line in f]
-    print(INSTALL_REQUIRES)
 
 with open('LICENSE') as f:
     LICENSE = f.read()
