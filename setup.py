@@ -2,9 +2,10 @@
 '''
 setup.py: Python setuptools script + package config
 '''
-
+import os
 from setuptools import setup, find_packages
 
+VERSION_TXT_PATH  = os.path.join(ROOT_DIR, 'VERSION')
 
 with open('README.md') as f:
     README = f.read()
@@ -12,10 +13,13 @@ with open('README.md') as f:
 with open('LICENSE') as f:
     LICENSE = f.read()
 
+with open(VERSION_TXT_PATH) as f:
+    VERSION = f.read()
+
 if __name__ == '__main__':
     setup(
         name='ppi-sanitise',
-        version='0.1.0',
+        version=VERSION,
         description='Code (regular expresssions and NTLK) to tokenise (remove)' + \
                     ' Private Personal Information (PPI) in Python.',
         long_description=README,
