@@ -1,0 +1,7 @@
+include LICENSE
+include *.txt
+include *.rst
+include pyproject.toml
+exclude Dockerfile
+recursive-include *.txt *.py
+prune build
