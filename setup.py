@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+'''
+setup.py: Python setuptools script + package config
+'''
 
 from setuptools import setup, find_packages
 
